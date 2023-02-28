@@ -14,7 +14,15 @@ const GitCalendar = () => {
         Git Calendar
       </Heading>
       <Center m='auto' mt={10} mb={10} w='95%'>
-        <GitHubCalendar username="pgariya" blockSize={15} blockMargin={5} fontSize={16}/>
+      
+        <GitHubCalendar
+          fontSize={14}
+          // color="red"
+          blockRadius={1}
+          blockMargin={6}
+          blockSize={16}
+          showWeekdayLabels
+          username="pgariya" />
       </Center>
 
 

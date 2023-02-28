@@ -7,7 +7,6 @@ import {
   Stack,
   Avatar,
   useColorModeValue,
-  HStack,
   Tag,
   Button,
   Link,
@@ -66,28 +65,32 @@ export default function Card({
 }) {
   return (
     <Center py={6}>
-      <Box
-        maxW={"445px"}
+      <Box 
+        maxW={"450px"}
         w={"full"}
-        h={[, "xl"]}
+        // h={["xl", "xl"]}
+        // h={{base:"580px" , md:"650px" , lg : "570px"}}
+
         bg={useColorModeValue("white", "gray.900")}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
         overflow={"hidden"}
         >
-        <Box
-        className="cardZoom"
-          h={["160px", "210px"]}
+        <Box 
+        // className="cardZoom"
+          h={["200px", "250px"]}
           bg={"gray.100"}
           mt={-6}
           mx={-6}
           mb={6}
           pos={"relative"}
+         
         >
-          <Image src={img} layout={"fill"} />
+          <Image src={img} layout={"fill"} w="100%" h="100%" />
         </Box>
-        <Stack pt={[1, 20]}>
+
+        <Stack pt="1"  >
           <BlogTags tags={tag} />
           <TechStackTags tags={tsTags} />
           <Heading
@@ -99,11 +102,13 @@ export default function Card({
           </Heading>
           <Text color={"gray.500"}>{content}</Text>
         </Stack>
-        <Stack direction={"row"} pt={5}>
+
+
+        <Stack direction={"row"} pt={5}  >
           <Button
             bg={"red.400"}
             size={"sm"}
-            rounded={"full"}
+            // rounded={"full"}
             color={"white"}
             _hover={{ bg: "red.500" }}
             rightIcon={<BsGithub />}
@@ -119,7 +124,7 @@ export default function Card({
           <Button
             bg={"red.400"}
             size={"sm"}
-            rounded={"full"}
+            // rounded={"full"}
             color={"white"}
             _hover={{ bg: "red.500" }}
             rightIcon={<BsLink45Deg />}
@@ -133,6 +138,8 @@ export default function Card({
             </Link>
           </Button>
         </Stack>
+
+
       </Box>
     </Center>
   );

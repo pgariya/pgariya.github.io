@@ -11,22 +11,21 @@ import {
   useColorModeValue,
   Box,
 } from "@chakra-ui/react";
-import {
-  IoAnalyticsSharp,
-  IoLogoBitcoin,
-  IoSearchSharp,
-} from "react-icons/io5";
 
-import { FaReact, FaNodeJs, FaGithub } from "react-icons/fa";
+
+import { FaReact,  FaGithub } from "react-icons/fa";
 import {
   SiTypescript,
   SiHtml5,
   SiCss3,
   SiChakraui,
   SiRedux,
+  SiExpress,
 } from "react-icons/si";
 
-import { DiJavascript1 } from "react-icons/di";
+import { DiJavascript1, DiMongodb, DiNodejsSmall } from "react-icons/di";
+
+import {TbBrandNextjs} from "react-icons/tb"
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -48,14 +47,15 @@ const Feature = ({ text, icon, iconBg }) => {
 
 export default function Skills() {
   return (
-    <Container maxW={"5xl"} py={12} id="Skills">
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Stack spacing={4}>
+    <Container maxW={"5xl"}  id="Skills"  >
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}  w={{base: "95%", md:"100%"}} margin="auto">
+
+        <Stack spacing={4} p={5} w="100%">
           <Text
             textTransform={"uppercase"}
             color={"red.400"}
-            fontWeight={600}
-            fontSize={"sm"}
+            fontWeight={650}
+            fontSize={"lg"}
             bg={useColorModeValue("red.50", "red.900")}
             p={2}
             alignSelf={"flex-start"}
@@ -101,7 +101,21 @@ export default function Skills() {
                   iconBg={useColorModeValue("red.100", "red.900")}
                   text={"TypeScript"}
                 />
-                
+                <Feature
+                  icon={
+                    <Icon as={DiMongodb} color={"red.500"} w={5} h={5} />
+                  }
+                  iconBg={useColorModeValue("red.100", "red.900")}
+                  text={"Mongodb"}
+                />
+
+<Feature
+                  icon={
+                    <Icon as={DiNodejsSmall} color={"red.500"} w={5} h={5} />
+                  }
+                  iconBg={useColorModeValue("red.100", "red.900")}
+                  text={"Node JS"}
+                />
                
               </Stack>
             </Box>
@@ -140,21 +154,39 @@ export default function Skills() {
                   text={"Git & Github"}
                 />
               
+              <Feature
+                  icon={<Icon as={SiExpress} color={"yellow.500"} w={5} h={5} />}
+                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  text={"Express"}
+                />
+                <Feature
+                  icon={<Icon as={TbBrandNextjs} color={"yellow.500"} w={5} h={5} />}
+                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  text={"Next Js"}
+                />
+
               </Stack>
             </Box>
           </Flex>
         </Stack>
-        <Flex>
-          <Image
-            rounded={"md"}
+
+
+        <Flex >
+          <Image 
+            // rounded={"md"}
+            w={{base:"100%" , md:"100%"}}
+            h={{base:"350px" , md:"100%"}}
+            margin="auto"
             alt={"feature image"}
             src={
-              "https://vdc.edu.au/wp-content/uploads/2018/04/Image-Article-2-1024x705.jpg"
+              "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=628&q=80"
             }
+
             objectFit={"cover"}
             
           />
         </Flex>
+
       </SimpleGrid>
     </Container>
   );

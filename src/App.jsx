@@ -8,9 +8,7 @@ import Contact from "./Components/Contact";
 import GitCalendar from "./Components/GitCalendar";
 
 function App() {
-  document.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-  });
+
   return (
     <>
       <Navbar />

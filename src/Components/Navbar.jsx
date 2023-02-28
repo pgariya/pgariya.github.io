@@ -8,9 +8,6 @@ import {
   Button,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorMode,
   useColorModeValue,
@@ -18,9 +15,11 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import {IoMdDownload} from "react-icons/io"
+
 import { Link } from "react-scroll";
 
-const Links = ["About", "Skills",  "Projects"];
+const Links = ["About", "Skills", "Projects"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -46,6 +45,22 @@ const NavLink = ({ children }) => (
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const handleResume = () => {
+    
+    window.open(`https://drive.google.com/file/d/1EeRhTqNMm1rc3MaRzxq4_wvKlTlvifkN/view?usp=share_link`)
+    fetch("/Prakash-Gariya-Resume.pdf").then((res) => {
+      res.blob().then((blob) => {
+        const fileUrl = window.URL.createObjectURL(blob);
+        // create an object for the file.
+        let file = document.createElement("a");
+        file.href = fileUrl;
+        file.download = "/Prakash-Gariya-Resume.pdf";
+        file.click();
+      });
+    });
+  };
+
   return (
     <>
       <Box
@@ -65,7 +80,7 @@ export default function Navbar() {
           />
           <HStack spacing={8} alignItems={"center"}>
             <Box>
-              <Heading size={"lg"}>
+              <Box  >
                 <Link
                   style={{ cursor: "pointer" }}
                   px={2}
@@ -81,16 +96,23 @@ export default function Navbar() {
                   smooth={true}
                   offset={-100}
                   duration={500}
+                  display="flex"
                 >
-                  {" "}
-                  PRAKASH {" "}
+
+                  <Box display={"flex"} px={10}>
+                  <img src="https://w7.pngwing.com/pngs/161/658/png-transparent-blue-p-logo-paypal-logo-computer-icons-payment-system-paypal-blue-angle-service.png" alt="logo" style={{height:"25px"}}/>
+                  <Heading size={"md"}> PRAKASH </Heading>
+                  </Box>
+
                 </Link>
-              </Heading>
+              </Box>
             </Box>
             <HStack
               as={"nav"}
-              spacing={4}
+              spacing={10}
               display={{ base: "none", md: "flex" }}
+              fontWeight="bold"
+              fontSize={"20px"}
             >
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
@@ -101,8 +123,8 @@ export default function Navbar() {
             <Button onClick={toggleColorMode}>
               {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             </Button>
+
             <Button
-              rounded={"full"}
               bg={"red.400"}
               color={"white"}
               _hover={{
@@ -113,7 +135,6 @@ export default function Navbar() {
                 style={{ cursor: "pointer" }}
                 px={2}
                 py={1}
-                rounded={"md"}
                 _hover={{
                   textDecoration: "none",
                   bg: useColorModeValue("gray.200", "gray.700"),
@@ -128,6 +149,22 @@ export default function Navbar() {
                 Contact
               </Link>
             </Button>
+
+            {/* resume Download button */}
+            <Button
+              display={{ base: "none", lg: "flex" }}
+              bg={"red.400"}
+              size="md"
+              color={"white"}
+              _hover={{
+                bg: "red.500",
+              }}
+              onClick={handleResume}
+              my={"20px"}
+            >
+              My Resume <IoMdDownload/>
+            </Button>
+
             <Menu>
               <MenuButton
                 as={Button}
@@ -141,23 +178,6 @@ export default function Navbar() {
                   src={"https://i.postimg.cc/ydgw9vQZ/profile.jpg"}
                 />
               </MenuButton>
-              <MenuList>
-                <MenuItem>
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/prakash-gariya-a7580a239/"
-                  >
-                    Linkedin
-                  </a>
-                </MenuItem>
-                
-                <MenuDivider />
-                <MenuItem>
-                  <a target="_blank" href="https://github.com/pgariya">
-                    Github
-                  </a>
-                </MenuItem>
-              </MenuList>
             </Menu>
           </Flex>
         </Flex>
@@ -171,6 +191,9 @@ export default function Navbar() {
             </Stack>
           </Box>
         ) : null}
+
+
+
       </Box>
     </>
   );

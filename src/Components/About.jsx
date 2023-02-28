@@ -10,10 +10,14 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
+import {IoMdDownload} from "react-icons/io"
 import Typed from "react-typed";
 
 export default function About() {
+
   const handleResume = () => {
+    window.open(`https://drive.google.com/file/d/1EeRhTqNMm1rc3MaRzxq4_wvKlTlvifkN/view?usp=share_link`)
+
     fetch("/Prakash-Gariya-Resume.pdf").then((res) => {
       res.blob().then((blob) => {
         const fileUrl = window.URL.createObjectURL(blob);
@@ -25,6 +29,8 @@ export default function About() {
       });
     });
   };
+
+
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Stack
@@ -59,7 +65,7 @@ export default function About() {
                   "Prakash Gariya",
                   "A Full-Stack Developer",
                   "A Tech-Enthusiast",
-                  "An Entrepreneur",
+                  
                 ]}
                 typeSpeed={100}
                 backSpeed={100}
@@ -71,29 +77,27 @@ export default function About() {
           Motivated and innovative aspiring full-stack web developer
 with hands-on experience in building websites with MERN
 stack and various web technologies including HTML, CSS, and
-JS. Curious to learn about emerging web technologies. Looking
+JS. Curious to learn about emerging web technologies.
+ {/* Looking
 forward to making a significant contribution to an organization
-through dedicated effort.
+through dedicated effort. */}
           </Text>
           <Stack direction={{ base: "column", md: "row" }} spacing={4}>
             <Button
-              rounded={"full"}
               bg={"red.400"}
               color={"white"}
+              className="myresumebutton"
               _hover={{
                 bg: "red.500",
               }}
               onClick={handleResume}
+              display="flex"
             >
-              {/* <Link
-                style={{ textDecoration: "none" }}
-                href="https://drive.google.com/drive/folders/1-TBHBQjmB1ygTTIPgF7I3PNFT8g0qtxX?usp=sharing"
-                target={"_blank"}
-              > */}
-              My Resume
-              {/* </Link> */}
+              
+              My Resume <IoMdDownload/>
+            
             </Button>
-            <Button rounded={"full"}>
+            <Button >
               <Link
                 style={{ textDecoration: "none" }}
                 target={"_blank"}
@@ -122,31 +126,20 @@ through dedicated effort.
         </Stack>
       </Flex>
       <Flex flex={1} alignItems="center" justifyContent={"center"}>
-        {colorMode == "dark" ? (
+       
           <Image
-          borderRadius={500}
+          borderRadius={50}
             objectFit={"cover"}
             className="zoom"
-            width={["xs", "lg"]}
-            height={["xs", "lg"]}
+            width={["xs", "md"]}
+           
+            height={["xs", "md"]}
             src={
-              "https://i.postimg.cc/ydgw9vQZ/profile.jpg"
+              "https://i.postimg.cc/c44WQmP3/prof2.jpg"
             }
             />
-            ) : (
-              <Image
-          borderRadius={500}
-              alt={"Login Image"}
-              className="zoom"
-              objectFit={"cover"}
-              width={["xs", "lg"]}
-              height={["xs", "lg"]}
-              src={
-                
-                "https://i.postimg.cc/ydgw9vQZ/profile.jpg"
-            }
-          />
-        )}
+            
+        
       </Flex>
     </Stack>
   );

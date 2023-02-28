@@ -19,6 +19,29 @@
 .zoom {
   transform-origin: 50% 55%;
   transition: transform 5s, filter 3s ease-in-out;
+  animation: move-down 2s ease;
+}
+
+.myresumebutton {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+
+@keyframes move-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .zoom:hover {
