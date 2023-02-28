@@ -35,7 +35,7 @@ const Projects = () => {
       >
         <GridItem>
           <Card
-            img={"public/PROJECT-NEM.png"}
+            img={"/PROJECT-NEM.png"}
             tag={["Collaborative"]}
             tsTags={[
               "CSS",
