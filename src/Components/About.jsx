@@ -16,15 +16,15 @@ import Typed from "react-typed";
 export default function About() {
 
   const handleResume = () => {
-    window.open(`https://drive.google.com/file/d/1EeRhTqNMm1rc3MaRzxq4_wvKlTlvifkN/view?usp=share_link`)
+    window.open(`https://1drv.ms/b/s!AmExNO6RM3q-gUDZecNOhBc1Xdlc?e=t0ec6x`)
 
-    fetch("/Prakash-Gariya-Resume.pdf").then((res) => {
+    fetch("/fw20_0720_Prakash-Gariya-Resume.pdf").then((res) => {
       res.blob().then((blob) => {
         const fileUrl = window.URL.createObjectURL(blob);
         // create an object for the file.
         let file = document.createElement("a");
         file.href = fileUrl;
-        file.download = "/Prakash-Gariya-Resume.pdf";
+        file.download = "/fw20_0720_Prakash-Gariya-Resume.pdf";
         file.click();
       });
     });

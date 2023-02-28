@@ -47,15 +47,15 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const handleResume = () => {
-    
-    window.open(`https://drive.google.com/file/d/1EeRhTqNMm1rc3MaRzxq4_wvKlTlvifkN/view?usp=share_link`)
-    fetch("/Prakash-Gariya-Resume.pdf").then((res) => {
+
+    window.open(`https://1drv.ms/b/s!AmExNO6RM3q-gUDZecNOhBc1Xdlc?e=t0ec6x`)
+    fetch("/fw20_0720_Prakash-Gariya-Resume.pdf").then((res) => {
       res.blob().then((blob) => {
         const fileUrl = window.URL.createObjectURL(blob);
         // create an object for the file.
         let file = document.createElement("a");
         file.href = fileUrl;
-        file.download = "/Prakash-Gariya-Resume.pdf";
+        file.download = "/fw20_0720_Prakash-Gariya-Resume.pdf";
         file.click();
       });
     });
@@ -188,6 +188,27 @@ export default function Navbar() {
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
+        
+
+<Button
+    // display={{ base: "none", lg: "flex" }}
+    bg={"red.400"}
+    w="30%"
+    size="md"
+    color={"white"}
+    _hover={{
+      bg: "red.500",
+    }}
+    onClick={handleResume}
+    my={"20px"}
+  >
+    My Resume <IoMdDownload/>
+  </Button>
+
+
+
+
+
             </Stack>
           </Box>
         ) : null}
