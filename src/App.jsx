@@ -6,6 +6,7 @@ import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 
 import GitCalendar from "./Components/GitCalendar";
+import Experience from "./Components/Experience";
 
 function App() {
 
@@ -14,6 +15,9 @@ function App() {
       <Navbar />
       <About />
       <Skills />
+
+      {/* <Experience/> */}
+
       <Projects />
       <GitCalendar />
       <Contact />

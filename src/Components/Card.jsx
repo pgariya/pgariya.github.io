@@ -66,7 +66,7 @@ export default function Card({
   return (
     <Center py={6}>
       <Box 
-        maxW={"450px"}
+        // maxW={"450px"}
         w={"full"}
         // h={["xl", "xl"]}
         // h={{base:"580px" , md:"650px" , lg : "570px"}}
@@ -79,7 +79,7 @@ export default function Card({
         >
         <Box 
         // className="cardZoom"
-          h={["200px", "250px"]}
+          h={["250px", "350px"]}
           bg={"gray.100"}
           mt={-6}
           mx={-6}

@@ -47,8 +47,8 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const handleResume = () => {
-
-    window.open(`https://1drv.ms/b/s!AmExNO6RM3q-gUDZecNOhBc1Xdlc?e=t0ec6x`)
+    
+    window.open(`https://drive.google.com/file/d/1sbnAjgI8YklGvFK1d_tqUpUyVpOP4zLG/view?usp=sharing`)
     fetch("/fw20_0720_Prakash-Gariya-Resume.pdf").then((res) => {
       res.blob().then((blob) => {
         const fileUrl = window.URL.createObjectURL(blob);
@@ -79,8 +79,10 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>
-              <Box  >
+           
+
+
+              <Box  display={{ base: "none", md: "flex" }}>
                 <Link
                   style={{ cursor: "pointer" }}
                   px={2}
@@ -106,7 +108,9 @@ export default function Navbar() {
 
                 </Link>
               </Box>
-            </Box>
+            
+
+
             <HStack
               as={"nav"}
               spacing={10}
@@ -183,8 +187,9 @@ export default function Navbar() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
+          <Box pb={4} display={{ md: "none" }} h={"100vh"}>
+            <Stack as={"nav"} gap={4} justifyContent={"space-between"} mt={5}>
+
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
@@ -193,7 +198,7 @@ export default function Navbar() {
 <Button
     // display={{ base: "none", lg: "flex" }}
     bg={"red.400"}
-    w="30%"
+    // w="30%"
     size="md"
     color={"white"}
     _hover={{

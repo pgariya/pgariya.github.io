@@ -22,18 +22,22 @@ import { BsGithub, BsLink45Deg } from "react-icons/bs";
 
 const Projects = () => {
   return (
-    <Container maxW={"7xl"} p="12" id="Projects">
+    <Box  width={{ base: "95%", md: "90%" }} p={5} m="auto" id="Projects">
       {/* // project section..... */}
-      <Heading as="h2" marginTop="5">
+
+      <Heading as="h2" marginTop="5" marginBottom={5} >
         My Projects
       </Heading>
 
-      <Divider marginTop="5" />
+      {/* <Divider marginTop="5" /> */}
+
       <Grid
         templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
-        gap={"4"}
+        gap={"10"}
       >
-        <GridItem>
+        
+        {/* 1st Project  */}
+        <GridItem >
           <Card
             img={"/PROJECT-NEM.png"}
             tag={["Collaborative"]}
@@ -48,9 +52,9 @@ const Projects = () => {
               "Mongo DB",
 
             ]}
-            heading={"YEPME Cloned Website "}
+            heading={"Stylux Website"}
             content={
-              "Stylux is E-commerce website specialized in online retailing of men's and women's garments and accessories and this is clone of yepme website. "
+              "Stylux is E-commerce website specialized in online retailing of men's and women's garments and accessories and this is clone of yepme website "
             }
             deploy={"https://styluxe.vercel.app/"}
             git={
@@ -58,6 +62,34 @@ const Projects = () => {
             }
           />
         </GridItem>
+
+{/* 2nd project  */}
+        <GridItem >
+          <Card
+            img={"/ProjectImage2.png"}
+            tag={["Collaborative"]}
+            tsTags={[
+              "CSS",
+              "React",
+              "Redux",
+              "Chakra-Ui",
+              "JavaScript",
+              "ES-6",
+              "React-slick",
+              "AOS LIbrary",
+
+            ]}
+            heading={"IKEA Cloned Website "}
+            content={
+              "IKEA's website is the online store for the well-known Swedish furniture retailer.It offers furniture, home decor, and accessories."
+            }
+            deploy={"https://rococo-sawine-4218f1.netlify.app/"}
+            git={
+              "https://github.com/pgariya/fleet-purpose-8648"
+            }
+          />
+        </GridItem>
+
         <GridItem>
           <Card
             img={"/proo3.png"}
@@ -73,9 +105,9 @@ const Projects = () => {
               "LocalStorage",
               "api",
             ]}
-            heading={"Cronometer Cloned Website "}
+            heading={"Fitnesshub Website "}
             content={
-              "Cronometer is the most accurate, comprehensive nutrition tracking app on earth. "
+              "Fitnesshub is the most accurate, comprehensive nutrition tracking app. It is clone website of cronometer.com."
             }
             deploy={"https://projectfitnesshub.netlify.app/"}
             git={"https://github.com/srinetanuj/hissing-wrench-7979"}
@@ -90,8 +122,10 @@ const Projects = () => {
             tsTags={[
               "HTML",
               "CSS",
+              "Javascript",
               "api",
               "fetch",
+              "Local Storage",
               "JSON-Server",
               "React-Slider",
             ]}
@@ -106,33 +140,9 @@ const Projects = () => {
           />
         </GridItem>
 
-        <GridItem>
-          <Card
-            img={"/pro111.png"}
-            tag={["Individual"]}
-            tsTags={[
-              "HTML",
-              "CSS",
-              "React-Js",
-              "Redux",
-              "Chakra-Ui",
-              "JavaScript",
-              "ES-6",
-              "LocalStorage",
-              "React",
-            ]}
-            heading={"TRIPOTO Cloned Website "}
-            content={
-              "One of the best Website to Plan to Road Trips and Vacations "
-            }
-            deploy={"https://candid-heliotrope-ab3c63.netlify.app/"}
-            git={
-              "https://github.com/pgariya/unable-stop-3158/tree/main/tripotoapp"
-            }
-          />
-        </GridItem>
+       
       </Grid>
-    </Container>
+    </Box>
   );
 };
 
